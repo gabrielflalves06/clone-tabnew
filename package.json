@@ -4,12 +4,14 @@
   "description": "Projeto para treinar programação desenvolvido durante as aulas do Curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run database:up && next dev",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "database": "docker compose -f infra/compose.yaml up -d"
+    "database:up": "docker compose -f infra/compose.yaml up -d",
+    "database:stop": "docker compose -f infra/compose.yaml stop",
+    "database:down": "docker compose -f infra/compose.yaml down"
   },
   "author": "",
   "license": "MIT",
